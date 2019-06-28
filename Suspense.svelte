@@ -71,6 +71,8 @@ const eventEmitter = getEventEmitterAdapter(emitonoff);
 const next = eventEmitter.next.bind(eventEmitter);
 // NOTE: this is a Svelte quirk. The imported `events` is not taken into account otherwise
 const _events = events;
+const _properties = properties;
+const _commands = commands;
 
 // Create the machine
 const fsm = createStateMachine(fsmDef, Object.assign({}, settings, {debug:{console}}));

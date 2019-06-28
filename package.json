@@ -1,6 +1,6 @@
 {
   "name": "svelte-suspense",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "A Svelte component implementing React Suspense through a hierarchical state machine",
   "svelte": "Suspense.svelte",
   "scripts": {},
