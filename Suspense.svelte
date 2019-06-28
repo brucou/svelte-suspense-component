@@ -11,6 +11,8 @@ export let settings;
 let done;
 let stillLoading;
 let errorOccurred;
+const display="inline";
+const noDisplay="none";
 
 // Destructure the machine interface (event/command/properties)
 const [TIMER_EXPIRED, DONE, FAILED, START] = events;
@@ -67,9 +69,11 @@ const getEventEmitterAdapter = emitonoff => {
 };
 const eventEmitter = getEventEmitterAdapter(emitonoff);
 const next = eventEmitter.next.bind(eventEmitter);
+// NOTE: this is a Svelte quirk. The imported `events` is not taken into account otherwise
+const _events = events;
 
 // Create the machine
-const fsm = createStateMachine(fsmDef, settings || {});
+const fsm = createStateMachine(fsmDef, Object.assign({}, settings, {debug:{console}}));
 
 // Subscribing to machine events
 eventEmitter.subscribe({
@@ -115,7 +119,13 @@ eventEmitter.subscribe({
 
 <style>
 .incognito {
-  display: inline;
+  display: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.cognito {
+  display: inline-block;
   border: 0;
   padding: 0;
   margin: 0;
@@ -123,11 +133,11 @@ eventEmitter.subscribe({
 </style>
 
 {#if stillLoading }
-  <slot name="fallback" dispatch={next} {events} {commands} {properties}></slot>
+  <slot name="fallback" dispatch={next} events={_events} {commands}={_commands} {properties}={_properties}></slot>
 {/if }
 {#if errorOccurred }
-  <slot name="error" dispatch={next} {events} {commands} {properties}></slot>
+  <slot name="error" dispatch={next} events={_events} {commands}={_commands} {properties}={_properties}></slot>
 {/if }
-<div hidden={!done} class="incognito">
-  <slot dispatch={next} {events} {commands} {properties}></slot>
+<div class="{done ? 'cognito' : 'incognito'}">
+  <slot dispatch={next} events={_events} {commands}={_commands} {properties}={_properties}></slot>
 </div>
