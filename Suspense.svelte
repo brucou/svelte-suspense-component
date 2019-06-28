@@ -25,6 +25,10 @@ const defaultCommandHandlers = {
 		const { setTimeout } = effectHandlers;
 		setTimeout(() => dispatch({[TIMER_EXPIRED]: void 0}), duration)
   },
+  [RUN]: function (dispatch, params, effectHandlers) {
+    const run = params;
+    run(dispatch, {commands, events, properties, settings});
+  },
   [COMMAND_RENDER]: function (dispatch, params, effectHandlers){
     const {display, data} = params;
     done = display === MAIN;
@@ -127,7 +131,7 @@ eventEmitter.subscribe({
   margin: 0;
 }
 .cognito {
-  display: inline-block;
+  display: inherit;
   border: 0;
   padding: 0;
   margin: 0;
@@ -140,6 +144,10 @@ eventEmitter.subscribe({
 {#if errorOccurred }
   <slot name="error" dispatch={next} events={_events} commands={_commands} properties={_properties}></slot>
 {/if }
-<div class="{done ? 'cognito' : 'incognito'}">
+{#if done }
+<slot dispatch={next} events={_events} commands={_commands} properties={_properties}></slot>
+{:else }
+<div class="incognito">
   <slot dispatch={next} events={_events} commands={_commands} properties={_properties}></slot>
-</div>
+  </div>
+{/if }
