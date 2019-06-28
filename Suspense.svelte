@@ -133,11 +133,11 @@ eventEmitter.subscribe({
 </style>
 
 {#if stillLoading }
-  <slot name="fallback" dispatch={next} events={_events} {commands}={_commands} {properties}={_properties}></slot>
+  <slot name="fallback" dispatch={next} events={_events} commands={_commands} properties={_properties}></slot>
 {/if }
 {#if errorOccurred }
-  <slot name="error" dispatch={next} events={_events} {commands}={_commands} {properties}={_properties}></slot>
+  <slot name="error" dispatch={next} events={_events} commands={_commands} properties={_properties}></slot>
 {/if }
 <div class="{done ? 'cognito' : 'incognito'}">
-  <slot dispatch={next} events={_events} {commands}={_commands} {properties}={_properties}></slot>
+  <slot dispatch={next} events={_events} commands={_commands} properties={_properties}></slot>
 </div>
