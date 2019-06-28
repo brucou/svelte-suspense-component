@@ -1,0 +1,29 @@
+{
+  "name": "svelte-suspense",
+  "version": "0.1.0",
+  "description": "A Svelte component implementing React Suspense through a hierarchical state machine",
+  "svelte": "Suspense.svelte",
+  "scripts": {},
+  "devDependencies": {
+    "svelte": "^3.5.4"
+  },
+  "dependencies": {
+    "suspense-fsm": "^0.5.0",
+    "emitonoff": "^0.1.0",
+    "kingly": "^0.19.3"
+  },
+  "repository": "https://github.com/sveltejs/svelte-machine-component",
+  "author": "brucou",
+  "license": "MIT",
+  "keywords": [
+    "svelte",
+    "state",
+    "machine",
+    "component",
+    "state machine",
+    "automata"
+  ],
+  "files": [
+    "Suspense.svelte"
+  ]
+}
