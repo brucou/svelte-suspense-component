@@ -36,7 +36,7 @@ const defaultEffectHandlers = {
 const initEvent = {[START]: void 0}
 
 // Special handling of render command: compose default and custom processing
-const customRender =commandHandlers[COMMAND_RENDER];
+const customRender =commandHandlers && commandHandlers[COMMAND_RENDER];
 const defaultRender = defaultCommandHandlers[COMMAND_RENDER];
 let finalRenderHandler={};
 if (customRender){
