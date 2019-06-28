@@ -1,5 +1,5 @@
 <script>
-import {NO_OUTPUT} from "kingly"
+import {NO_OUTPUT, createStateMachine} from "kingly"
 import emitonoff from "emitonoff";
 import {commands, events, factory, fsmDef, properties} from "suspense-fsm"
 
@@ -69,7 +69,7 @@ const eventEmitter = getEventEmitterAdapter(emitonoff);
 const next = eventEmitter.next.bind(eventEmitter);
 
 // Create the machine
-const fsm = factory(settings);
+const fsm = createStateMachine(fsmDef, settings || {});
 
 // Subscribing to machine events
 eventEmitter.subscribe({
