@@ -1,8 +1,8 @@
 <script>
 import {NO_OUTPUT, createStateMachine} from "kingly"
 import emitonoff from "emitonoff";
-// import {commands, events, factory, fsmDef, properties} from "suspense-fsm"
-import {commands, events, factory, fsmDef, properties} from "./svelte-suspense-fsm"
+import {commands, events, factory, fsmDef, properties} from "suspense-fsm"
+// import {commands, events, factory, fsmDef, properties} from "./svelte-suspense-fsm"
 
 
 // props
