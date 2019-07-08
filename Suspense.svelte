@@ -61,7 +61,6 @@ const defaultCommandHandlers = {
     done = display === MAIN;
     stillLoading = display === FALLBACK;
     errorOccurred = display === ERR;
-    debugger
   },
 }
 const defaultEffectHandlers = {
