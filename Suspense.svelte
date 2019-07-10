@@ -4,7 +4,6 @@ import emitonoff from "emitonoff";
 import {commandMonikers as commands, eventMonikers as events, factory, fsmDef, properties} from "suspense-fsm"
 // import {commands, events, factory, fsmDef, properties} from "./svelte-suspense-fsm"
 
-
 // props
 export let commandHandlers;
 export let effectHandlers;
