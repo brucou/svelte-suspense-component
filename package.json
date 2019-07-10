@@ -8,7 +8,7 @@
     "svelte": "^3.5.4"
   },
   "dependencies": {
-    "suspense-fsm": "^0.9.0",
+    "suspense-fsm": "^0.10.0",
     "emitonoff": "^0.1.0",
     "kingly": "^0.19.3"
   },
