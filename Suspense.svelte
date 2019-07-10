@@ -1,7 +1,7 @@
 <script>
-import {NO_OUTPUT, createStateMachine} from "kingly"
+import {NO_OUTPUT} from "kingly"
 import emitonoff from "emitonoff";
-import {commandMonikers as commands, eventMonikers as events, factory, fsmDef, properties} from "suspense-fsm"
+import {commandMonikers as commands, eventMonikers as events, factory, compiledFactory, fsmDef, properties} from "suspense-fsm"
 // import {commands, events, factory, fsmDef, properties} from "./svelte-suspense-fsm"
 
 // props
@@ -85,7 +85,8 @@ const finalCommandHandlers = Object.assign({}, defaultCommandHandlers, commandHa
 const finalEffectHandlers = Object.assign({}, defaultEffectHandlers, effectHandlers);
 
 // Create the machine
-const fsm = factory(Object.assign({}, {task, timeout}, {debug:{console}}));
+const fsm = compiledFactory(Object.assign({}, {task, timeout}, {debug:{console}}));
+// const fsm = factory(Object.assign({}, {task, timeout}, {debug:{console}}));
 
 // Subscribing to machine events
 eventEmitter.subscribe({
