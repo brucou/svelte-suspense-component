@@ -1,7 +1,7 @@
 <script>
 import {NO_OUTPUT, createStateMachine} from "kingly"
 import emitonoff from "emitonoff";
-import {commands, events, factory, fsmDef, properties} from "suspense-fsm"
+import {commandMonikers as commands, eventMonikers as events, factory, fsmDef, properties} from "suspense-fsm"
 // import {commands, events, factory, fsmDef, properties} from "./svelte-suspense-fsm"
 
 
@@ -19,7 +19,7 @@ const display="inline";
 const noDisplay="none";
 
 // Destructure the machine interface (event/command/properties)
-const [TIMER_EXPIRED, DONE, FAILED, START] = events;
+const [START, TIMER_EXPIRED, DONE, FAILED] = events;
 const [COMMAND_RENDER, RUN, START_TIMER] = commands ;
 const [FALLBACK, MAIN, ERR] = properties;
 
